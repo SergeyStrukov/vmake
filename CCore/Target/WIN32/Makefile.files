@@ -1,0 +1,69 @@
+OBJ_LIST = \
+.obj/CheckPlatformBase.o \
+.obj/NoCopy.o \
+.obj/PlatformBase.o \
+
+
+ASM_LIST = \
+.obj/CheckPlatformBase.s \
+.obj/NoCopy.s \
+.obj/PlatformBase.s \
+
+
+DEP_LIST = \
+.obj/CheckPlatformBase.dep \
+.obj/NoCopy.dep \
+.obj/PlatformBase.dep \
+
+
+ASM_OBJ_LIST = \
+.obj/PlatformBase.s.o \
+
+
+include $(RULES_FILE)
+
+
+.obj/CheckPlatformBase.o : ../../Simple/CCore/src/base/CheckPlatformBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/NoCopy.o : ../../Simple/CCore/src/gadget/NoCopy.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+.obj/PlatformBase.o : ../../Target/WIN32/CCore/src/base/PlatformBase.cpp
+	$(CC) $(CCOPT) $< -o $@
+
+
+
+.obj/CheckPlatformBase.s : ../../Simple/CCore/src/base/CheckPlatformBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/NoCopy.s : ../../Simple/CCore/src/gadget/NoCopy.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+.obj/PlatformBase.s : ../../Target/WIN32/CCore/src/base/PlatformBase.cpp
+	$(CC) -S $(CCOPT) $< -o $@
+
+
+
+.obj/CheckPlatformBase.dep : ../../Simple/CCore/src/base/CheckPlatformBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/CheckPlatformBase.o $< -MF $@
+
+.obj/NoCopy.dep : ../../Simple/CCore/src/gadget/NoCopy.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/NoCopy.o $< -MF $@
+
+.obj/PlatformBase.dep : ../../Target/WIN32/CCore/src/base/PlatformBase.cpp
+	$(CC) $(CCOPT) -MM -MT .obj/PlatformBase.o $< -MF $@
+
+
+
+.obj/PlatformBase.s.o : ../../Target/WIN32/CCore/src/base/PlatformBase.s
+	$(AS) $(ASOPT) $< -o $@
+
+
+
+ifneq ($(MAKECMDGOALS),clean)
+
+-include $(DEP_FILE)
+
+endif
+
