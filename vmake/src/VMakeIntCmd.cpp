@@ -17,7 +17,7 @@
 #include <CCore/inc/Path.h>
 
 #include <CCore/inc/Print.h>
-#include <CCore/inc/DecodeFile.h>
+#include <CCore/inc/GetBinaryFile.h>
 
 namespace App {
 namespace VMake {
@@ -94,7 +94,7 @@ int IntCmdProc::cat(StrLen wdir,PtrLen<DDL::MapText> files,StrLen outfile)
        {
         WDirFileName file1(wdir,file);
 
-        DecodeFile inp(file1.get());
+        GetBinaryFile inp(file1.get());
 
         while( inp.more() )
           {

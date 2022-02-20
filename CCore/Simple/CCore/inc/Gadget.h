@@ -21,13 +21,13 @@
 //#include <CCore/inc/gadget/CreateAt.h>
 #include <CCore/inc/gadget/DefaultTimeout.h>
 #include <CCore/inc/gadget/ExceptionType.h>
-//#include <CCore/inc/gadget/Function.h>
-//#include <CCore/inc/gadget/Handle.h>
+#include <CCore/inc/gadget/Function.h>
+#include <CCore/inc/gadget/Handle.h>
 #include <CCore/inc/gadget/Init.h>
 #include <CCore/inc/gadget/Len.h>
 //#include <CCore/inc/gadget/Locked.h>
-//#include <CCore/inc/gadget/LockObject.h>
-//#include <CCore/inc/gadget/LockUse.h>
+#include <CCore/inc/gadget/LockObject.h>
+#include <CCore/inc/gadget/LockUse.h>
 #include <CCore/inc/gadget/Meta.h>
 #include <CCore/inc/gadget/MetaList.h>
 #include <CCore/inc/gadget/MSec.h>

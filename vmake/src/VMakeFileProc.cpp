@@ -64,7 +64,7 @@ void SpawnExecute(StrLen exe_file,StrLen wdir,PtrLen<DDL::MapText> args,PtrLen<T
 
 void StopFlag::input(Symbol sym)
  {
-  if( ToChar(sym)=='x' )
+  if( ToBasicChar(sym)=='x' )
     {
      count++;
 
